@@ -1,2 +1,31 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+
+<% if @parent %>
+  
+  <h1>親カテゴリーを追加</h1>
+  
+    
+    <%= form_for @parent do |form| %>     
+     
+
+    <% end %>
+
+  
+
+<% elsif @children %>
+  <h1>子カテゴリーを追加</h1>
+
+
+
+
+
+
+<% end %>
+
+
+
+
+
+
+
+
+

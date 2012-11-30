@@ -10,8 +10,26 @@ class CategoriesController < ApplicationController
   end
 
   def new
-  
-  
+
+    #パラメーターを値を取り出す。
+    type = params[:type]
+    if type == "parent"
+      #親カテゴリーの追加だったする処理。
+      @parent = Category.new
+      @parent.parent_id = 1
+
+      return
+    elsif type == "children"
+      #子カテゴリーの追加の処理。
+
+
+
+    else
+      #エラー処理を起こす。
+
+      return
+    end
+
   
   end
 
@@ -45,4 +63,11 @@ class CategoriesController < ApplicationController
   
   
   end
+
+
+
+
+
+
+
 end
