@@ -1,2 +1,21 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+
+<h1>カテゴリーを表示</h1>
+
+<ul>
+  <% @parents.each do |parent| %>
+    
+    <li><span style="color: blue"><%= parent.name =%></span></li>
+      
+      <% parent.children.each do |child| %>
+        <p><%= child.name =%></p>
+      <% end %>
+  
+  <% end %>
+</ul>
+
+
+
+
+
+
+

@@ -4,7 +4,8 @@ class CategoriesController < ApplicationController
   
   def index
   
-  
+    @categories = Category.all
+    @parents = @categories[0].children
   
   end
 
