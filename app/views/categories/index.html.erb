@@ -1,31 +1,48 @@
 
-<h1>カテゴリーを表示</h1>
+<div data-role="header" data-theme="b">
+  <h1>エキスパートを選ぶ</h1>
+</div>
 
+
+<!--     ここは管理画面のみだけに表示 -->
 <p><a href="/categories/new?type=parent">親カテゴリーを追加</a></p>
 <p><a href="/categories/new?type=children">子カテゴリーを追加</a></p>
+
+
 
 <ul>
   <% @parents.each do |parent| %>
     
     <li>
       <span style="color: blue"><strong><%= parent.name =%></strong></span>
-      <%= link_to "編集",[:edit,parent] =%>
-      <%= link_to "削除",parent,method: :delete =%>
+ 
+
+
+      <!-- ここは管理画面のみだけに表示 -->　
+      <%= link_to "編集",[:edit,parent] =%> 
+      <%= link_to "削除",parent,method: :delete =%> 
+
+
+
     </li>
       
       <% parent.children.each do |child| %>
         <p>
           <%= link_to child.name =%>
+
+
+
+          <!-- ここは管理画面のみだけに表示 -->　
           <%= link_to "編集",[:edit,child] =%>
           <%= link_to "削除",child,method: :delete =%>
+
+
+
         </p>
       <% end %>
   
   <% end %>
 </ul>
-
-
-
 
 
 

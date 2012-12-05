@@ -6,7 +6,8 @@ class CategoriesController < ApplicationController
   
     @categories = Category.all
     @parents = @categories[0].children
-  
+    logger.debug(@parents.inspect)
+
   end
 
   def new
