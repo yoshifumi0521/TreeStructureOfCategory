@@ -1,0 +1,47 @@
+# coding: utf-8
+
+#カテゴリーのシードデータを埋めるためのファイル
+
+#上位階層のデータ
+TopOfcategories = Category.find_or_initialize_by_id("全ジャンル")
+TopOfcategories.parent_id = nil
+TopOfcategories.save
+
+
+#職種/役職というジャンルをつくる。
+#position = Category.find_or_initialize_by_id(2)
+#position.name = "職種/役職"
+#position.parent_id = 1
+#position.save
+
+#職種/役職というジャンルをつくる。
+#nameOfpositions = { }
+
+
+
+
+
+
+#2番目のジャンルをつくる。ITというジャンルをつくる。
+#ITOfcategories = Category.find_or_initialize_by_id(2)
+#ITOfcategories.name = "IT"
+#ITOfcategories.parent_id = 1
+#ITOfcategories.save
+
+
+#ITというジャンルの中の項目をいくるかつくる。
+#IT1 = Category.find_or_initialize_by_id(3)
+#IT1.name = "サーバーエンジニア"
+#IT1.parent_id = 2
+#IT1.save
+
+#IT2 = Category.find_or_initialize_by_id(4)
+#IT2.name = "フロントエンジニア"
+#IT2.parent_id = 2
+#IT2.save
+
+#IT3 = Category.find_or_initialize_by_id(5)
+#IT3.name = "デザイナー"
+#IT3.parent_id = 2
+#IT3.save
+
