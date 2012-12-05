@@ -1,15 +1,16 @@
 
 <% if @parent %>
-  
+   
   <h1>親カテゴリーを追加</h1>
-  
     
     <%= form_for @parent do |form| %>     
       <table>
         <th><%= form.label :name,"親カテゴリー名" %></th>
         <td><%= form.text_field :name %> </td>
-
-
+        
+        <input type="hidden" name="type" value="parent" />
+        
+        <td><%= form.submit "追加" %></td>
       </table>
     <% end %>
 
@@ -18,9 +19,11 @@
 <% elsif @children %>
   <h1>子カテゴリーを追加</h1>
 
+  <%= form_for @children do |form| %>
 
 
 
+  <% end %>
 
 
 <% end %>
