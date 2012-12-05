@@ -5,8 +5,12 @@
   
     
     <%= form_for @parent do |form| %>     
-     
+      <table>
+        <th><%= form.label :name,"親カテゴリー名" %></th>
+        <td><%= form.text_field :name %> </td>
 
+
+      </table>
     <% end %>
 
   

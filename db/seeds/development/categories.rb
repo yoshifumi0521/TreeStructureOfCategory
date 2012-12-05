@@ -2,13 +2,11 @@
 
 #カテゴリーのシードデータを埋めるためのファイル
 
-#一番上の階層のデータ
+#上位階層のデータ
 TopOfcategories = Category.find_or_initialize_by_id(1)
 TopOfcategories.name = "全ジャンル"
 TopOfcategories.parent_id = nil
 TopOfcategories.save
-
-
 
 
 #2番目のジャンルをつくる。ITというジャンルをつくる。
@@ -16,6 +14,16 @@ ITOfcategories = Category.find_or_initialize_by_id(2)
 ITOfcategories.name = "IT"
 ITOfcategories.parent_id = 1
 ITOfcategories.save
+
+
+
+
+
+
+
+
+
+
 
 #ITというジャンルの中の項目をいくるかつくる。
 IT1 = Category.find_or_initialize_by_id(3)
