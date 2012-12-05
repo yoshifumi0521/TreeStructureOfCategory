@@ -20,9 +20,12 @@
   <h1>子カテゴリーを追加</h1>
 
   <%= form_for @children do |form| %>
+    <table>
+      <th><%= form.label :parent_id,"親カテゴリー" %> </th>     
+      <td><%= form.select :parent_id ,option(@parents) %></td>
 
 
-
+    </table>
   <% end %>
 
 
