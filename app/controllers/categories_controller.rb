@@ -110,8 +110,6 @@ class CategoriesController < ApplicationController
 
   def update
  
-    logger.debug(params)
-
     @type = params[:type] 
     if @type == "parent"
       @parent = Category.find(params[:id])
@@ -141,12 +139,50 @@ class CategoriesController < ApplicationController
 
     end
 
-
-  
   end
 
+  #親カテゴリーと子カテゴリーの削除メソッド
   def destroy
   
+    #親カテゴリーのオブジェクトを取得。 
+    @parents = Category.find(1).children
+    
+    #親カテゴリーか子カテゴリーか？を判定する。
+    @flag = false
+    #idを取得する。この時にstringからintegerにする。
+    @id = params[:id].to_i
+    #親カテゴリーの編集か、子カテゴリーの編集かを判定する。
+    @parents.each do |parent|
+      if parent[:id] == @id 
+        @flag = true 
+        break #ループをぬける。
+      end
+    end
+
+    if @flag
+      #親カテゴリーだったら場合の処理。論理削除する。
+      #親が持つ子のカテゴリーを論理削除
+      @children = Category.find(@id).children
+      @children.each do |child| 
+        child.destroy
+      end
+      #親カテゴリーを論理削除する。
+      Category.find(@id).destroy 
+      
+      redirect_to :categories
+
+    else
+      #子カテゴーだった場合のの処理。
+      #子カテゴリーを論理削除
+      Category.find(@id).destroy
+
+      redirect_to :categories
+    end
+
+
+
+
+
   
   
   

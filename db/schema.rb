@@ -16,13 +16,7 @@ ActiveRecord::Schema.define(:version => 20121130090643) do
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.integer  "parent_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "categoties", :force => true do |t|
-    t.string   "name"
-    t.integer  "parent_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

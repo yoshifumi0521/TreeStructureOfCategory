@@ -9,7 +9,8 @@ class Category < ActiveRecord::Base
   has_many :children,:class_name => "Category",:foreign_key => :parent_id 
   belongs_to :parent,:class_name => "Category",:foreign_key => :parent_id
 
-
+  #rails3_acts_as_paranoidライブラリを使うための処理。
+  acts_as_paranoid
 
 
 

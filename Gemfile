@@ -22,6 +22,9 @@ end
 
 gem 'jquery-rails'
 
+#rails3_acts_as_paranoidという論理削除のライブラリを作成
+gem "rails3_acts_as_paranoid"
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
