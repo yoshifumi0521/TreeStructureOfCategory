@@ -5,12 +5,16 @@
     
     <%= form_for @parent do |form| %>     
       <table>
-        <th><%= form.label :name,"親カテゴリー名" %></th>
-        <td><%= form.text_field :name %> </td>
-        
+        <tr>
+          <th><%= form.label :name,"親カテゴリー名" %></th>
+          <td><%= form.text_field :name %> </td>
+        </tr>
+
         <input type="hidden" name="type" value="parent" />
         
-        <td><%= form.submit "追加" %></td>
+        <tr>
+          <td><%= form.submit "追加" %></td>
+        </tr>
       </table>
     <% end %>
 
@@ -21,9 +25,21 @@
 
   <%= form_for @children do |form| %>
     <table>
-      <th><%= form.label :parent_id,"親カテゴリー" %> </th>     
-      <td><%= form.select :parent_id ,option(@parents) %></td>
+      <tr>
+        <th><%= form.label :parent_id,"親カテゴリー" %> </th>     
+        <td><%= form.select :parent_id ,option(@parents) %></td>
+      </tr>
 
+      <input type="hidden" name="type" value="children" />
+      
+      <tr>
+        <th><%= form.label :name,"子カテゴリー名" %></th>
+        <td><%= form.text_field :name %></td>
+      </tr>
+
+      <tr>
+        <td><%= form.submit "追加" %></td>
+      </tr>
 
     </table>
   <% end %>

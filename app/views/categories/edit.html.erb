@@ -1,6 +1,50 @@
 
-<h1>カテゴリーの編集</h1>
+<% if @flag %>
+  <h1>親カテゴリーの編集</h1>
 
+  <%= form_for @parent do |form| %>
+    <table>
+      <tr>
+        <th><%= form.label :name,"親カテゴリーの名前" %></th>
+        <td><%= form.text_field :name %></td>
+      </tr>
+
+      <input type="hidden" name="type" value="parent" />
+      
+      <tr>
+        <td><%= form.submit "編集" %></td>
+      </tr>
+    </table>
+  <% end %>
+
+<% else %>
+  <h1>子カテゴリーの編集</h1>
+
+  <%= form_for @children do |form| %>
+    <table> 
+      <tr>
+        <th><%= form.label :parent_id ,"親カテゴリー"%></th>
+        <td><%= form.select :parent,option(@parents)%></td>
+      </tr>
+
+      <tr>
+        <th><%= form.label :name,"子カテゴリー名" %></th>
+        <td><%= form.text_field :name %></td>
+      </tr>
+
+      <input type="hidden" name="type" value="parent" />
+
+      <tr>
+        <td><%= form.submit "編集" %></td>
+      </tr>
+
+    </table>
+  <% end %>
+
+
+
+
+<% end %>
 
 
 
