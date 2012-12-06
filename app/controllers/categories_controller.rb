@@ -179,12 +179,6 @@ class CategoriesController < ApplicationController
       redirect_to :categories
     end
 
-
-
-
-
-  
-  
   
   end
 

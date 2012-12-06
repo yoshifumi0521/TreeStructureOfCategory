@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121130090643) do
+ActiveRecord::Schema.define(:version => 20121206071930) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,25 @@ ActiveRecord::Schema.define(:version => 20121130090643) do
     t.datetime "deleted_at"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "havecategories", :force => true do |t|
+    t.integer  "category_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "havecategories", ["category_id"], :name => "index_havecategories_on_category_id"
+  add_index "havecategories", ["user_id"], :name => "index_havecategories_on_user_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "name",                          :null => false
+    t.string   "uid",                           :null => false
+    t.boolean  "use",        :default => true
+    t.boolean  "advice",     :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
 end
