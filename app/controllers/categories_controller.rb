@@ -109,14 +109,37 @@ class CategoriesController < ApplicationController
   end
 
   def update
-  
-    
+ 
+    logger.debug(params)
 
+    @type = params[:type] 
+    if @type == "parent"
+      @parent = Category.find(params[:id])
+      @parent.name = params[:category][:name]
+      
+      if @parent.save
+        #保存されたらする処理。
+        redirect_to :categories
+      else
+        render "edit"
+      end
 
+    elsif @type == "children"
+      @children =Category.find(params[:id])
+      @children.name = params[:category][:name]
+      @children.parent_id = params[:category][:parent]
 
+      if @children.save
+        #保存されたらする処理。
+        redirect_to :categories
+      else
+        render "edit"
+      end
 
+    else
+      #エラー処理を起こす。
 
-
+    end
 
 
   
