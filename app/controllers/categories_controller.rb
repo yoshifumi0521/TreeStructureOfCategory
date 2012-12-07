@@ -164,17 +164,17 @@ class CategoriesController < ApplicationController
       #親が持つ子のカテゴリーを論理削除
       @children = Category.find(@id).children
       @children.each do |child| 
-        child.destroy
+        #child.destroy
       end
       #親カテゴリーを論理削除する。
-      Category.find(@id).destroy 
+      #Category.find(@id).destroy 
       
       redirect_to :categories
 
     else
       #子カテゴーだった場合のの処理。
       #子カテゴリーを論理削除
-      Category.find(@id).destroy
+      #Category.find(@id).destroy
 
       redirect_to :categories
     end

@@ -12,6 +12,10 @@ class Category < ActiveRecord::Base
   #rails3_acts_as_paranoidライブラリを使うための処理。
   acts_as_paranoid
 
+  #中間モデルTaggingをつかって、Userモデルと多対多の関係をつくる。
+  has_many :taggings
+  has_many :users,:through => :taggings
+
 
 
 
