@@ -3,29 +3,16 @@
   <h1>エキスパートを選ぶ</h1>
 </div>
 
-<!--
-<form method="post" action="/experts/search">
-  <p>
-     候補1：<input type="text" name="travel[]" /><br />
-     候補2：<input type="text" name="travel[]" /><br />
-     候補3：<input type="text" name="travel[]" /><br />
-  <input type="submit" value="送信" />
-  <p>
-  
-</form>
--->
-
-
 <!--     ここは管理画面のみだけに表示 -->
 <!--
 <p><a href="/categories/new?type=parent">親カテゴリーを追加</a></p>
 <p><a href="/categories/new?type=children">子カテゴリーを追加</a></p>
 -->
 
+<%= form_tag(:search_experts) do %>
+ 
+  <p><%= submit_tag "検索" %></p>
 
-<form method="post" action="/experts/search">
-
-  
   <ul>
     <% @parents.each do |parent| %>
     
@@ -40,11 +27,20 @@
 
       </li>
         <% parent.children.each do |child| %>
-          
+         
+            <!--
             <label>
               <input type="checkbox" name="category" value="<%= child.id %>" > 
               <%= child.name %>
             </label>
+            -->
+            
+            <label>
+              <%= hidden_field_tag 'children[][id]', child.id %>
+              <%= check_box_tag 'children[][flag]' %>
+              <%= child.name %>
+            </label>
+
             <!-- ここは管理画面のみだけに表示 -->　
             <!--
             <%= link_to "編集",[:edit,child] =%>
@@ -56,10 +52,7 @@
     <% end %>
   </ul>
 
-
-
-</form>
-
+<% end %>
 
 
 

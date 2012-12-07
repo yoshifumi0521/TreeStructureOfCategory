@@ -3,9 +3,7 @@
 class ExpertsController < ApplicationController
 
   def index
-    logger.debug(params)
     
-
   
   end
 
@@ -37,6 +35,17 @@ class ExpertsController < ApplicationController
   end
 
   def destroy
+
+
+  end
+
+  #検索するメソッド
+  def search
+
+    logger.debug(params)
+
+
+
 
 
   end
