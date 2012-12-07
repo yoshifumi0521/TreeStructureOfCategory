@@ -43,7 +43,7 @@ class ExpertsController < ApplicationController
   def search
 
     logger.debug(params)
-
+    render "index"
 
 
 
