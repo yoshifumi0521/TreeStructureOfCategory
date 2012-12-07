@@ -2,6 +2,11 @@ TreeStructureOfCategory::Application.routes.draw do
 
   resources :categories 
 
+  resources :experts do
+    collection do
+      post "search"
+    end
+  end
 
 
 
