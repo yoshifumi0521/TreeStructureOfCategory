@@ -9,7 +9,7 @@
 <p><a href="/categories/new?type=children">子カテゴリーを追加</a></p>
 -->
 
-<%= form_tag(:search_experts) do %>
+<%= form_tag(:search_experts,:method => "get") do %>
  
   <p><%= submit_tag "検索" %></p>
 
@@ -36,8 +36,8 @@
             -->
             
             <label>
-              <%= hidden_field_tag 'children[][id]', child.id %>
-              <%= check_box_tag 'children[][flag]' %>
+              <!--<%= hidden_field_tag 'category[][id]', child.id %>-->
+              <%= check_box_tag 'category[]',child.id %>
               <%= child.name %>
             </label>
 

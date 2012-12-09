@@ -4,7 +4,7 @@ TreeStructureOfCategory::Application.routes.draw do
 
   resources :experts do
     collection do
-      post "search"
+      get "search"
     end
   end
 

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   #中間モデルTaggingをつかって、Categoryモデルと多対多の関係を結ぶ。
   has_many :taggings
-  has_many :categories,:through => :taggings
+  has_many :categories,:through => :taggings,source: :category
 
 
 
