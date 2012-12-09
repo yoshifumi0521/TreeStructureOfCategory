@@ -9,7 +9,7 @@
 
   <% @experts.each do |expert| %>
     <li>
-      <%= link_to expert.name + "さん" %>
+      <%= link_to expert.name + "さん",expert_path(expert.name) %>
     </li>
   <% end %>
 </ol>
