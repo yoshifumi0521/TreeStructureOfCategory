@@ -14,7 +14,8 @@ class Category < ActiveRecord::Base
 
   #中間モデルTaggingをつかって、Userモデルと多対多の関係をつくる。
   has_many :taggings
-  has_many :users,:through => :taggings
+  #sourceを使って、名前をexpertsにして、Category.expertsでデータを取り出せるようにする。
+  has_many :experts,:through => :taggings, source: :user
 
 
 
