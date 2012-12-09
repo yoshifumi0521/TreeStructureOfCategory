@@ -8,7 +8,10 @@ class User < ActiveRecord::Base
   has_many :categories,:through => :taggings,source: :category
 
 
+  def filtertext(id)
+    logger.debug(id) 
 
+  end
 
 
 

@@ -3,11 +3,22 @@
 class ExpertsController < ApplicationController
 
   def index
-    logger.debug("aaa")    
-  
+
+    @flag = true
+    #エキスパートのみ取り出す。
+    @experts = User.where(advice: true)
+
   end
 
+  #エキスパートを表示させるアクション
   def show
+
+    @expert = User.find_by_id_and_advice(params[:id],true)
+    logger.debug(@expert.inspect)
+    if !@expert
+      #エラー処理を起こす
+      
+    end
 
   
   end
@@ -42,6 +53,7 @@ class ExpertsController < ApplicationController
   #検索するメソッド
   def search
 
+    @flag = false
     #選択されたカテゴリーのidをいれる配列の変数
     @selections = params[:category]
     if !@selections

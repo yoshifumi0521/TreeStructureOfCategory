@@ -106,7 +106,7 @@
 
 #エキスパート6のデータ。名前rio。
 @expert6 = User.find_or_initialize_by_uid("6")
-@expert6.name = "rio"
+@expert6.name = "akira"
 @expert6.advice = true
 @expert6.save
 
@@ -134,7 +134,7 @@
 
 #エキスパート8のデータ。名前kaori。
 @expert8 = User.find_or_initialize_by_uid("8")
-@expert8.name = "kaori"
+@expert8.name = "maori"
 @expert8.advice = true
 @expert8.save
 
@@ -161,7 +161,7 @@
 
 #エキスパート10のデータ。名前nippe。
 @expert10 = User.find_or_initialize_by_uid("10")
-@expert10.name = "nippe"
+@expert10.name = "eri"
 @expert10.advice = true
 @expert10.save
 
